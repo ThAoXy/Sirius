@@ -12,7 +12,7 @@ import os
     UNIVERSIDAD AUTONOMA DE OCCIDENTE
     AUTORES:
     HENRY SARRIA
-    FRANCISCO TORRES
+    FRANCISCO RIASCOS
 """
 
 def KSA(key):
@@ -47,32 +47,19 @@ def convert_char_to_dec(s):
     #print (ord(c) for c in s)
     return [ord(c) for c in s]
 
-def operation_rc4(_type, message_file, key_file, archivo):
+def operation_rc4(_type, message_file, key_file, finalfile):
     #Se inicializan variables
-    if (_type == "enc"):
-        print("PROCESO DE CIFRADO RC4")
-        print("El mensaje a cifrar es: " + message_file)
-        print("La clave que se utilizara para cifrar el mesnaje es: " + key_file)
-    elif(_type == "dec"):
-        print("PROCESO DE DESCIFRADO RC4")
-        print("El criptograma a descifrar es: " + message_file)
-        print("La clave que se utilizara para descifrar el mesnaje es: " + key_file)
-
     key=""
     keystream=""
-    file_route = route + "/" + archivo + ".txt"
+    file_route = route + "/" + finalfile
 
     key = convert_char_to_dec(key_file)
     keystream = RC4(key)
 
-    print("El " + archivo + " en decimal es:")
     #se realiza la operacion XOR entre el keystream y el mensaje
     code = [ (ord(x) ^ next(keystream)) for x in message_file ]    
-    print (code)
 
-    print("El " + archivo + " en char es:")
     codechar = [chr(x) for x in code]       #se convierte el mensaje de entero a char
-    print(codechar)
     fullStr = ''.join(codechar)             #se convierte el array en un string
     file = open(file_route, "w")            #se lee la ruta donde se alamacenara el criptograma 
     file.write(fullStr)                     #se escribe el mensaje en el archivo
@@ -85,7 +72,7 @@ def Docs(flags):
     _authors = """
     __________________________________________________________________________________________________
     Autores:    Henry Sarria               henry.sarria@uao.edu.co
-                Francisco Torres           francisco.torres@uao.edu.co
+                Francisco Riascos          francisco.riascos@uao.edu.co
     __________________________________________________________________________________________________
     Universidad Autónoma de Occidente
     Especialización en Seguridad Infromática
@@ -106,19 +93,21 @@ def Docs(flags):
         _title_ = 'CIFRADO CON RC4'
         __doc__ = """
                 """+_title_+"""
-    Sintaxis: python """+sys.argv[0]+""" enc -m <mensaje> -k <clave>
-    <mensaje>:  Nombre del archivo con el texto en plano.
-    <clave>:    Nombre del archivo con la llave o clave con la que se desea cifrar el texto.
-    Ejemplo:    python """+sys.argv[0]+""" enc -m message.txt -k key.txt"""+_authors
+    Sintaxis: python """+sys.argv[0]+""" enc -m <mensaje> -k <clave> -o <archivofinal>
+    <mensaje>:      Nombre del archivo con el texto en plano.
+    <clave>:        Nombre del archivo con la llave o clave con la que se desea cifrar el texto.
+    <archivofinal>  Nombre del archivo en donde se almacenara el criptograma (no colocar extension)
+    Ejemplo:    python """+sys.argv[0]+""" enc -m message.txt -k key.txt -o finalfile"""+_authors
 
     elif (((len(flags)<=2) and (flags[0]=='dec')) or ((len(flags)<=2))):
         _title_ = 'DESCIFRADO DE RC4'
         __doc__ = """
                 """+_title_+"""
-    Sintaxis: python """+sys.argv[0]+""" dec -m <criptograma> -k <clave>
+    Sintaxis: python """+sys.argv[0]+""" dec -m <criptograma> -k <clave> -o <archivofinal>
     <criptograma>:  Nombre del archivo con el texto cifrado.
     <clave>:        Nombre del archivo con la llave o clave con la que se desea descifrar el texto cifrado.
-    Ejemplo:    python """+sys.argv[0]+""" enc -c cripto.cif -k key.txt"""+_authors
+    <archivofinal>  Nombre del archivo en donde se almacenara el mensaje descifrado (no colocar extension)
+    Ejemplo:    python """+sys.argv[0]+""" enc -c cripto.txt -k key.txt -o finalfile"""+_authors
     try:
         sys.exit (__doc__)
     except Exception:
@@ -129,14 +118,15 @@ def main(argu):
     start_time = time.time()
     global route 
     route = os.getcwd()     #ruta del archivo de python rc4.py
-    flags = 'm:k:'          #banderas para los argumentos pasados en la CLI
+    flags = 'm:k:o:'          #banderas para los argumentos pasados en la CLI
     global _type
     _type = ""              #tipo de operacion que se realizara
+    archivo = ""
+
 
     _type = argu[0]         #se le asigna la operacion que se realizara
     args = argu[1:]         #se asignan el resto de argumentos de la CLI
 
-    print(route)
     try:
         opts,arg = getopt.getopt(args,flags)        #se comparan si los argumentos ingresados son conrrectos
     except getopt.GetoptError:
@@ -154,24 +144,15 @@ def main(argu):
             file = open(key_route,'r')              
             key_file = file.read()                  #se lee el archivo clave
             file.close()
+        elif opt=='-o':
+            finalfile = arg + ".txt"
 
-    if _type == "enc":          
-        #Si la operacion es cifrar
-        archivo="criptograma"
- 
-    elif _type == 'dec':        
-        #Si la operacion es descifrar
-        archivo="mensaje"
- 
-    else:
-        # Si se encuentran errores, se despliega la ayuda
-        print("Error en la operacion, por favor revisar")
-        Docs(argu)
-        sys.exit(2)
-
-    operation_rc4(_type, message_file, key_file, archivo)
+    operation_rc4(_type, message_file, key_file, finalfile)
     final_time = time.time()-start_time
+    print("==========================================")
+    print("OPERACION TERMINADA CON EXITO")
     print("Tiempo de Ejecución: " + str(final_time) + "sg")
+    print("==========================================")
 
 if __name__ == '__main__':
     Docs(sys.argv[1:]);
