@@ -102,7 +102,7 @@ def Docs(flags):
         enc:    Cifrar utilizando el algoritmo RC4
         dec:    Descifrar algo cifrado con el algortimo RC4"""+_authors
 
-    elif (((len(flags)<=2) and (flags[0]=='enc')) or ((len(flags)<=2))):
+    elif ((len(flags)<=2) and (flags[0]=='enc')):
         _title_ = 'CIFRADO CON RC4'
         __doc__ = """
                 """+_title_+"""
