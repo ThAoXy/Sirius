@@ -1,11 +1,11 @@
-===================================================================================
+==========================================================================================
 ALGORITMO RIVEST CIPHER 4 (RC4)
 
 El siguiente es un script que contiene el funcionamiento del algortimo de cifrado RC4
 El script contiene dos operaciones basicas las cuales son cifrar 'enc' y descifrar 'dec'.
 El resultado final es almacenado en un archivo el cual el usuario debe definir el nombre.
 Para obtener mas detalles del funcionamiento seguir leyendo la ayuda de abajo.
-====================================================================================
+==========================================================================================
 ALGORITMO RIVEST CIPHER 4 (RC4)
     Sintaxis: python rc4.py <operacion>
     <operacion>:
@@ -21,7 +21,7 @@ ALGORITMO RIVEST CIPHER 4 (RC4)
     Siler Amador Donado
     2019-II
 
-===================================================================
+==========================================================================================
 CIFRADO CON RC4
     Sintaxis: python rc4.py enc -m <mensaje> -k <clave>
     <mensaje>:  Nombre del archivo con el texto en plano.
@@ -36,7 +36,8 @@ CIFRADO CON RC4
     Certificados y Firmas Digitales
     Siler Amador Donado
     2019-II
-===============================================================
+
+==========================================================================================
 DESCIFRADO DE RC4
     Sintaxis: python rc4.py dec -m <criptograma> -k <clave>
     <criptograma>:  Nombre del archivo con el texto cifrado.
@@ -51,4 +52,4 @@ DESCIFRADO DE RC4
     Certificados y Firmas Digitales
     Siler Amador Donado
     2019-II
-====================================================================================
+==========================================================================================
