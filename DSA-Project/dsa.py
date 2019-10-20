@@ -143,8 +143,6 @@ def validate_sign(r, s, q):
 #=============================================================================================================
 #Funcion de Documentacion y Help
 def Docs(flags):
-    #print(flags)
-    print(flags[0])
     _authors = """
     __________________________________________________________________________________________________
     Autores:    Henry Sarria               henry.sarria@uao.edu.co
@@ -213,7 +211,6 @@ def main(argu):
     L = 1024
 
     _type = argu[0]         #se le asigna la operacion que se realizara
-    print(_type)
     args = argu[1:]         #se asignan el resto de argumentos de la CLI
 
     if (_type == 'gen'):
