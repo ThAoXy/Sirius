@@ -47,7 +47,7 @@ def convert_char_to_dec(s):
     #print (ord(c) for c in s)
     return [ord(c) for c in s]
 
-def operation_rc4(_type, message_file, key_file, finalfile):
+def operation_rc4(message_file, key_file, finalfile):
     #Se inicializan variables
     key=""
     keystream=""
@@ -118,13 +118,7 @@ def main(argu):
     start_time = time.time()
     global route 
     route = os.getcwd()     #ruta del archivo de python rc4.py
-    flags = 'm:k:o:'          #banderas para los argumentos pasados en la CLI
-    global _type
-    _type = ""              #tipo de operacion que se realizara
-    archivo = ""
-
-
-    _type = argu[0]         #se le asigna la operacion que se realizara
+    flags = 'm:k:o:'        #banderas para los argumentos pasados en la CLI
     args = argu[1:]         #se asignan el resto de argumentos de la CLI
 
     try:
@@ -147,7 +141,7 @@ def main(argu):
         elif opt=='-o':
             finalfile = arg + ".txt"
 
-    operation_rc4(_type, message_file, key_file, finalfile)
+    operation_rc4(message_file, key_file, finalfile)
     final_time = time.time()-start_time
     print("==========================================")
     print("OPERACION TERMINADA CON EXITO")
