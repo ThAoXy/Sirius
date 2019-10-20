@@ -1,0 +1,8 @@
+========================================================================
+REQUERIMIENTOS
+
+El script ejecuta unas librerias que solo funcionan en python version 3
+Adicional se debe instalar la libreria:
+gmpy2 = 2.0.8
+https://pypi.org/project/gmpy2/
+========================================================================

@@ -7,7 +7,7 @@ El script esta diseñado para generar archivos en formato .txt y alamacenarlos
 en la ruta donde se ejecuta el script.
 El archivo mensaje y todos los demas archivos deben estar en la carpeta en 
 donde se encuentre el script.
-Por favor ver la ayuda del script.
+Por favor ver el archivo Requirements.txt y ver la ayuda del script.
 ================================================================================================================
 GENERACION DE LLAVES CON DSA
     Sintaxis: python3 dsa.py gen -p <llavepublica> -k <llaveprivada>
