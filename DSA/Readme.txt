@@ -43,10 +43,10 @@ FIRMADO DE HASH CON DSA
 ================================================================================================================
 VERIFICACION DE FIRMA
     Sintaxis: python3 dsa.py ver -p <llavepublica> -m <mensaje> -s <firma>
-    <llavepublica>    Nombre del archivo en donde estan almancenados los parametros [p,q,g,y] (no colocar extension)
+    <llavepublica>    Nombre del archivo en donde estan almancenados los parametros [p,q,g,y]
     <archivo>:        Nombre del archivo con el mensaje a firmar.
-    <firma>           Nombre del archivo en donde se almacenara la firma (no colocar extension)
-    Ejemplo:    python dsa.py ver -p llavepublica.txt -m mensaje.txt -s firma
+    <firma>           Nombre del archivo en donde esta almacenada la firma.
+    Ejemplo:    python dsa.py ver -p llavepublica.txt -m mensaje.txt -s firma.txt
     __________________________________________________________________________________________________
     Autores:    Henry Sarria               henry.sarria@uao.edu.co
                 Francisco Riascos          francisco.riascos@uao.edu.co

@@ -8,7 +8,7 @@ from gmpy2 import xmpz, to_binary, invert, powmod, is_prime
 
 """
     ESTE CODIGO FUE GENERADO EN BASE AL CODIGO:
-    Copyright (C) 2012 Bo Zhu http://about.bozhu.me
+    Copyright (C) pymq - https://github.com/pymq
     PARA LA MATERIA: ESPECIALIZACION EN SEGURIDAD INFORMATICA
     UNIVERSIDAD AUTONOMA DE OCCIDENTE
     AUTORES:
@@ -89,7 +89,7 @@ def sign(M, p, q, g, x):
         raise Exception("Invalid params")
     while True:
         k = randrange(2, q)  # k < q            #se genera un numero aleatorio entre 2 y Q esto es el KE en nuestro diagrama
-        r = powmod(g, k, p) % q                 #se calcula R = Y^(KE mod P) mod Q
+        r = powmod(g, k, p) % q                 #se calcula R = G^(KE mod P) mod Q
         m = int(sha1(M).hexdigest(), 16)        #se saca el hash del mensaje y se pone en decimal base 16
         print("El Hash del mensaje es:")
         print(m)
@@ -189,10 +189,10 @@ def Docs(flags):
         __doc__ = """
                 """+_title_+"""
     Sintaxis: python3 """+sys.argv[0]+""" ver -p <llavepublica> -m <mensaje> -s <firma>
-    <llavepublica>    Nombre del archivo en donde estan almancenados los parametros [p,q,g,y] (no colocar extension)
+    <llavepublica>    Nombre del archivo en donde estan almancenados los parametros [p,q,g,y]
     <archivo>:        Nombre del archivo con el mensaje a firmar.
-    <firma>           Nombre del archivo en donde se almacenara la firma (no colocar extension)
-    Ejemplo:    python """+sys.argv[0]+""" ver -p llavepublica.txt -m mensaje.txt -s firma"""+_authors
+    <firma>           Nombre del archivo en donde esta almacenada la firma.
+    Ejemplo:    python """+sys.argv[0]+""" ver -p llavepublica.txt -m mensaje.txt -s firma.txt"""+_authors
     try:
         sys.exit (__doc__)
     except Exception:
