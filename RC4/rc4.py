@@ -1,5 +1,6 @@
+
 #!/usr/bin/env python
-#-*-coding: utf-8-*-
+# -*- coding: iso-8859-15 -*-
 import sys
 import getopt
 import time
@@ -74,8 +75,8 @@ def Docs(flags):
     Autores:    Henry Sarria               henry.sarria@uao.edu.co
                 Francisco Riascos          francisco.riascos@uao.edu.co
     __________________________________________________________________________________________________
-    Universidad Autónoma de Occidente
-    Especialización en Seguridad Infromática
+    Universidad Autonoma de Occidente
+    Especializacion en Seguridad Infromatica
     Certificados y Firmas Digitales
     Siler Amador Donado
     2019-II
@@ -97,6 +98,7 @@ def Docs(flags):
     <mensaje>:      Nombre del archivo con el texto en plano.
     <clave>:        Nombre del archivo con la llave o clave con la que se desea cifrar el texto.
     <archivofinal>  Nombre del archivo en donde se almacenara el criptograma (no colocar extension)
+    Nota:   Todos los archivos deben estar en la misma carpeta donde se encuentre el script.
     Ejemplo:    python """+sys.argv[0]+""" enc -m message.txt -k key.txt -o finalfile"""+_authors
 
     elif (((len(flags)<=2) and (flags[0]=='dec')) or ((len(flags)<=2))):
@@ -107,7 +109,8 @@ def Docs(flags):
     <criptograma>:  Nombre del archivo con el texto cifrado.
     <clave>:        Nombre del archivo con la llave o clave con la que se desea descifrar el texto cifrado.
     <archivofinal>  Nombre del archivo en donde se almacenara el mensaje descifrado (no colocar extension)
-    Ejemplo:    python """+sys.argv[0]+""" enc -c cripto.txt -k key.txt -o finalfile"""+_authors
+    Nota:   Todos los archivos deben estar en la misma carpeta donde se encuentre el script.
+    Ejemplo:   python """+sys.argv[0]+""" enc -c cripto.txt -k key.txt -o finalfile"""+_authors
     try:
         sys.exit (__doc__)
     except Exception:
@@ -145,7 +148,7 @@ def main(argu):
     final_time = time.time()-start_time
     print("==========================================")
     print("OPERACION TERMINADA CON EXITO")
-    print("Tiempo de Ejecución: " + str(final_time) + "sg")
+    print("Tiempo de Ejecucion: " + str(final_time) + "sg")
     print("==========================================")
 
 if __name__ == '__main__':
