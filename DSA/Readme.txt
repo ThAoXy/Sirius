@@ -3,10 +3,8 @@ Digital Signature Algorithm
 
 El siguiente es un script que realiza la generacion de un par de llaves
 publica y privada, firma de un hash de un archivo y verificacion de la firma.
-El script esta diseñado para generar archivos en formato .txt y alamacenarlos
-en la ruta donde se ejecuta el script.
-El archivo mensaje y todos los demas archivos deben estar en la carpeta en 
-donde se encuentre el script.
+El script esta diseñado para generar archivos en formato .txt y alamacenarlos en la ruta donde se ejecuta el script.
+El archivo mensaje y todos los demas archivos deben estar en la carpeta en donde se encuentre el script.
 Por favor ver el archivo Requirements.txt y ver la ayuda del script.
 ================================================================================================================
 GENERACION DE LLAVES CON DSA

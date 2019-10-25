@@ -1,8 +1,21 @@
-========================================================================
+================================================================================================
 REQUERIMIENTOS
 
 El script ejecuta unas librerias que solo funcionan en python version 3
 Adicional se debe instalar la libreria:
 gmpy2 = 2.0.8
+
+Para instalar ejecutar el siguiente comando: pip3 install gmpy2
+Adicional ver el siguiente link para conocer acerca del proyecto y sobre su instalacion:
 https://pypi.org/project/gmpy2/
-========================================================================
+
+Tener en cuenta:
+1. Si el codigo se ejecuta en una maquina Kali-Linux este se debe encontrar actualizado.
+	Para ello recuerde que se debe añadir el repositorio de Kali
+	https://docs.kali.org/general-use/kali-linux-sources-list-repositories
+	Y se debe dar los comandos: 
+	apt-get update
+	apt-get upgrade
+2. La libreria gmpy2 se basa en dos librerias adicionales las cuales se pueden instalar asi:
+	apt-get install libmpfr-dev libmpc-dev 
+================================================================================================
