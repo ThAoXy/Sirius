@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python
 # -*- coding: iso-8859-15 -*-
 import sys
@@ -16,6 +15,8 @@ import os
     FRANCISCO RIASCOS
 """
 
+#==================================================
+#Definicion de la funcion KSA
 def KSA(key):
     keylength = len(key)
 
@@ -28,7 +29,8 @@ def KSA(key):
 
     return S
 
-
+#==================================================
+#Definicion de la funcion PRGA
 def PRGA(S):
     i = 0
     j = 0
@@ -40,14 +42,20 @@ def PRGA(S):
         K = S[(S[i] + S[j]) % 256]
         yield K
 
+#==================================================
+#Definicion de la funcion RC4
 def RC4(key):
     S = KSA(key)
     return PRGA(S)
 
+#==================================================
+#Definicion de la funcion para convertir string a decimal
 def convert_char_to_dec(s):
     #print (ord(c) for c in s)
     return [ord(c) for c in s]
 
+#==================================================
+#Definicion de la operacion RC4
 def operation_rc4(message_file, key_file, finalfile):
     #Se inicializan variables
     key=""
@@ -67,6 +75,8 @@ def operation_rc4(message_file, key_file, finalfile):
     print (file)
     file.close()
 
+#==================================================
+#Definicion de la funcion de Documentacion
 def Docs(flags):
     #print(flags)
 
@@ -116,6 +126,8 @@ def Docs(flags):
     except Exception:
         pass
 
+#==================================================
+#Definicion de la operacion Main
 def main(argu):
     #inicializo variables
     start_time = time.time()
@@ -151,6 +163,8 @@ def main(argu):
     print("Tiempo de Ejecucion: " + str(final_time) + "sg")
     print("==========================================")
 
+#==================================================
+#Funcion principal
 if __name__ == '__main__':
     Docs(sys.argv[1:]);
     main(sys.argv[1:]);
